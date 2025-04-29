@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alliance Jiu-Jitsu - Evolua Seu Jogo com o Professor Juan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        alliance: {
+                            black: '#000000',
+                            gold: '#D4AF37',
+                            white: '#FFFFFF',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        title: ['Oswald', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
+        
+        .bg-alliance-pattern {
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJNMzAgMTVMMTUgMzBMMzAgNDVMNDUgMzBMMzAgMTVaTTMwIDBMMCAzMEwzMCA2MEw2MCAzMEwzMCAwWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRDVBRDM3IiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=');
+            background-size: 120px;
+            opacity: 0.05;
+        }
+    
+
+
+        .hero-video-overlay {
+            background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3), 0 4px 6px -2px rgba(212, 175, 55, 0.1);
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(212, 175, 55, 0.3);
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, rgba(212,175,55,1) 0%, rgba(0,0,0,1) 50%, rgba(212,175,55,1) 100%);
+        }
+    </style>
+</head>
+<body class="font-sans bg-alliance-white text-alliance-black">
+    <!-- Header with Logo -->
+    <header class="bg-alliance-black py-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://i.postimg.cc/cCjWjS3C/ali.png" alt="Alliance Jiu-Jitsu Logo" class="h-12">
+                <span class="ml-2 text-alliance-gold font-bold text-xl hidden md:block">ALLIANCE VILA MATILDE</span>
+            </div>
+            <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-2 px-6 rounded-full cta-button">
+                QUERO EVOLUIR
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-alliance-pattern z-0"></div>
+        <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-title font-bold leading-tight mb-6">
+                        <span class="text-alliance-gold">DESTRAVE</span> SEU JOGO NO JIU-JITSU COM QUEM VIVE O TATAME TODOS OS DIAS
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                        Aprenda os conceitos que fazem qualquer atleta se destacar – com um faixa preta da Alliance que ainda compete, ensina e evolui há mais de 15 anos.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-4 px-8 rounded-full text-center text-xl cta-button">
+                            QUERO EVOLUIR COM O PROFESSOR JUAN
+                        </a>
+                        <a href="#depoimentos" class="border-2 border-alliance-gold text-alliance-gold font-bold py-4 px-8 rounded-full text-center text-xl hover:bg-alliance-gold hover:text-alliance-black transition">
+                            <i class="fas fa-play mr-2"></i> VER DEPOIMENTOS
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative">
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <img src="https://i.postimg.cc/8C4M8KzM/Screenshot-19-4-2025-185454-www-instagram-com.jpg&auto=format&fit=crop&w=1350&q=80" alt="Professor Juan Sanchez ensinando Jiu-Jitsu" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="w-20 h-20 bg-alliance-gold rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition">
+                                <i class="fas fa-play text-alliance-black text-2xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-alliance-gold rounded-full opacity-20 z-0"></div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-alliance-gold rounded-full opacity-20 z-0"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professor Section -->
+    <section class="py-16 bg-alliance-black text-alliance-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-alliance-pattern z-0"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/3 mb-10 lg:mb-0 flex justify-center">
+                    <div class="relative">
+                        <img src="https://i.postimg.cc/nrmLx2Jn/hjtyhj.jpg&auto=format&fit=crop&w=634&q=80" alt="Professor Juan Sanchez" class="rounded-full w-64 h-64 md:w-80 md:h-80 object-cover border-4 border-alliance-gold shadow-xl">
+                        <div class="absolute -bottom-5 -right-5 bg-alliance-gold text-alliance-black py-2 px-6 rounded-full font-bold text-lg shadow-lg">
+                            Faixa Preta
+                        </div>
+                    </div>
+                </div>
+                <div class="lg:w-2/3 lg:pl-12">
+                    <h2 class="text-3xl md:text-4xl font-title font-bold mb-6 text-alliance-gold">
+                        CONHEÇA O PROFESSOR <span class="text-alliance-white">JUAN SANCHEZ</span>
+                    </h2>
+                    <div class="mb-8">
+                        <p class="text-lg mb-4">
+                            <i class="fas fa-medal text-alliance-gold mr-2"></i> Faixa preta e competidor há mais de 15 anos
+                        </p>
+                        <p class="text-lg mb-4">
+                            <i class="fas fa-graduation-cap text-alliance-gold mr-2"></i> Formado em Educação Física
+                        </p>
+                        <p class="text-lg mb-4">
+                            <i class="fas fa-school text-alliance-gold mr-2"></i> Fundador da @alliancevilamatilde
+                        </p>
+                        <p class="text-lg mb-4">
+                            <i class="fas fa-heart text-alliance-gold mr-2"></i> Professor da clínica @napedelweiss – Educação Especial
+                        </p>
+                    </div>
+                    <div class="bg-alliance-gold bg-opacity-10 border-l-4 border-alliance-gold p-6 rounded-r-lg mb-8">
+                        <p class="text-lg italic">
+                            "Meu propósito é ajudar cada aluno a encontrar seu próprio jogo no Jiu-Jitsu, desenvolvendo não apenas técnicas, mas a inteligência de combate que faz a diferença no tatame."
+                        </p>
+                    </div>
+                    <div class="bg-alliance-black border border-alliance-gold p-6 rounded-lg">
+                        <h3 class="text-xl font-bold text-alliance-gold mb-4">
+                            <i class="fas fa-users mr-2"></i> EXPERIÊNCIA COM DIVERSOS PÚBLICOS
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-child text-alliance-gold mr-3 text-xl"></i>
+                                <span>Crianças</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-female text-alliance-gold mr-3 text-xl"></i>
+                                <span>Mulheres</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-trophy text-alliance-gold mr-3 text-xl"></i>
+                                <span>Atletas</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-user-tie text-alliance-gold mr-3 text-xl"></i>
+                                <span>Profissionais ocupados</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alliance Badge -->
+    <div class="section-divider"></div>
+    <div class="bg-alliance-black py-8 text-center">
+        <div class="container mx-auto px-4">
+            <h3 class="text-2xl font-bold text-alliance-gold mb-4">
+                <i class="fas fa-trophy mr-2"></i> AFILIADO À EQUIPE ALLIANCE
+            </h3>
+            <p class="text-xl text-alliance-white">
+                14x CAMPEÃ MUNDIAL DE JIU-JITSU
+            </p>
+        </div>
+    </div>
+    <div class="section-divider"></div>
+
+    <!-- Program Section -->
+    <section class="py-16 bg-alliance-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">
+                    O QUE VOCÊ VAI <span class="text-alliance-gold">APRENDER</span>
+                </h2>
+                <div class="w-24 h-1 bg-alliance-gold mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Um método completo que vai além das técnicas tradicionais, focando nos conceitos que fazem a diferença no seu jogo
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Card 1 -->
+                <div class="bg-alliance-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hover:border-alliance-gold transition">
+                    <div class="bg-alliance-black p-6 text-center">
+                        <div class="w-16 h-16 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-brain text-alliance-black text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-alliance-white">TOMADA DE DECISÃO</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">
+                            Aprenda a ler as situações de combate e tomar as melhores decisões em frações de segundo, desenvolvendo sua inteligência de jogo.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-alliance-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hover:border-alliance-gold transition">
+                    <div class="bg-alliance-black p-6 text-center">
+                        <div class="w-16 h-16 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chess text-alliance-black text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-alliance-white">LEITURA DE JOGO</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">
+                            Antecipe os movimentos do oponente e desenvolva a capacidade de controlar o ritmo e a direção do combate.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="bg-alliance-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hover:border-alliance-gold transition">
+                    <div class="bg-alliance-black p-6 text-center">
+                        <div class="w-16 h-16 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heartbeat text-alliance-black text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-alliance-white">CONTROLE EMOCIONAL</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">
+                            Domine suas emoções durante os treinos e competições, mantendo a clareza mental mesmo sob pressão.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="bg-alliance-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hover:border-alliance-gold transition">
+                    <div class="bg-alliance-black p-6 text-center">
+                        <div class="w-16 h-16 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-project-diagram text-alliance-black text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-alliance-white">SISTEMAS DE JOGO</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">
+                            Desenvolva sistemas completos de ataque e defesa que se adaptam ao seu biotipo e personalidade no tatame.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="bg-alliance-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hover:border-alliance-gold transition">
+                    <div class="bg-alliance-black p-6 text-center">
+                        <div class="w-16 h-16 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-alliance-black text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-alliance-white">DEFESA PESSOAL</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">
+                            Técnicas adaptadas para situações reais, aumentando sua confiança e segurança no dia a dia.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="bg-alliance-white rounded-xl shadow-xl overflow-hidden border border-gray-200 hover:border-alliance-gold transition">
+                    <div class="bg-alliance-black p-6 text-center">
+                        <div class="w-16 h-16 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-running text-alliance-black text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-alliance-white">CONDIÇÃO FÍSICA</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700">
+                            Exercícios específicos para melhorar sua resistência, flexibilidade e força aplicada ao Jiu-Jitsu.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-alliance-gold bg-opacity-10 border-l-4 border-alliance-gold p-8 rounded-lg max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-alliance-black mb-4">
+                    <i class="fas fa-tv mr-2"></i> FORMATO DAS AULAS
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-alliance-gold mb-2">
+                            <i class="fas fa-video mr-2"></i> CONTEÚDO GRAVADO
+                        </h4>
+                        <p class="text-gray-700">
+                            Aulas conceituais detalhadas disponíveis 24/7 para você assistir quantas vezes quiser.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-alliance-gold mb-2">
+                            <i class="fas fa-users mr-2"></i> AULAS AO VIVO
+                        </h4>
+                        <p class="text-gray-700">
+                            Sessões semanais para tirar dúvidas e treinar com orientação direta do professor.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-alliance-gold mb-2">
+                            <i class="fas fa-mobile-alt mr-2"></i> WHATSAPP EXCLUSIVO
+                        </h4>
+                        <p class="text-gray-700">
+                            Grupo fechado para feedback personalizado e interação com outros alunos.
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-alliance-gold mb-2">
+                            <i class="fas fa-tasks mr-2"></i> EXERCÍCIOS PRÁTICOS
+                        </h4>
+                        <p class="text-gray-700">
+                            Roteiros de treino para aplicar os conceitos aprendidos no tatame.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Whom Section -->
+    <section class="py-16 bg-alliance-black text-alliance-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">
+                    PARA QUEM É <span class="text-alliance-gold">ESTE PROGRAMA</span>
+                </h2>
+                <div class="w-24 h-1 bg-alliance-gold mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Se você se identifica com algum desses perfis, este método foi feito para você
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 hover:bg-opacity-50 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-alliance-gold rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-alliance-black text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">FAIXAS BRANCAS TRAVADAS</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        Que sabem algumas técnicas mas não conseguem aplicá-las durante o rola, sentindo-se perdidos no tatame.
+                    </p>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 hover:bg-opacity-50 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-alliance-gold rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-user-graduate text-alliance-black text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">FAIXAS AZUIS AMBICIOSAS</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        Que querem pensar como faixas roxas e desenvolver um jogo mais inteligente e eficiente.
+                    </p>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 hover:bg-opacity-50 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-alliance-gold rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-female text-alliance-black text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">MULHERES DETERMINADAS</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        Que buscam confiança e segurança nos treinos, adaptando o Jiu-Jitsu ao seu biotipo e necessidades.
+                    </p>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 hover:bg-opacity-50 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-alliance-gold rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-running text-alliance-black text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">ATLETAS DE OUTRAS MODALIDADES</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        Que desejam adaptar seu condicionamento e habilidades ao Jiu-Jitsu de forma inteligente.
+                    </p>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 hover:bg-opacity-50 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-alliance-gold rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-briefcase text-alliance-black text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">PROFISSIONAIS OCUPADOS</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        Que precisam de treino objetivo e técnico para maximizar seu tempo no tatame.
+                    </p>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 hover:bg-opacity-50 transition">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-alliance-gold rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-question text-alliance-black text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">QUEM SABE MAS NÃO APLICA</h3>
+                    </div>
+                    <p class="text-gray-300">
+                        Que conhece as técnicas mas não consegue aplicá-las com consistência durante os treinos.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="depoimentos" class="py-16 bg-alliance-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">
+                    O QUE OS <span class="text-alliance-gold">ALUNOS DIZEM</span>
+                </h2>
+                <div class="w-24 h-1 bg-alliance-gold mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Veja como este método transformou o jiu-jitsu de quem já treina com o professor Juan
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <!-- Testimonial 1 -->
+                <div class="bg-alliance-white rounded-xl overflow-hidden shadow-xl testimonial-card">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center relative">
+                            <i class="fas fa-play text-alliance-gold text-4xl absolute"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Aluno" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Carlos Silva</h4>
+                                <p class="text-sm text-alliance-gold">Faixa Azul</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Depois de 6 meses travado, em 1 mês com o professor Juan já senti diferença no meu jogo. Agora consigo pensar durante o rola!"
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-alliance-white rounded-xl overflow-hidden shadow-xl testimonial-card">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center relative">
+                            <i class="fas fa-play text-alliance-gold text-4xl absolute"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Aluna" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Ana Oliveira</h4>
+                                <p class="text-sm text-alliance-gold">Faixa Branca</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "Como mulher, me sentia insegura nos treinos. O professor Juan me mostrou como adaptar o jiu-jitsu ao meu corpo e hoje me sinto muito mais confiante."
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-alliance-white rounded-xl overflow-hidden shadow-xl testimonial-card">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center relative">
+                            <i class="fas fa-play text-alliance-gold text-4xl absolute"></i>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Aluno" class="w-12 h-12 rounded-full mr-4">
+                            <div>
+                                <h4 class="font-bold">Ricardo Santos</h4>
+                                <p class="text-sm text-alliance-gold">Faixa Roxa</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 italic">
+                            "O diferencial são os conceitos que o professor ensina. Mesmo sendo faixa roxa, aprendi coisas que nunca tinha pensado antes."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-4 px-8 rounded-full inline-block text-xl cta-button">
+                    QUERO FAZER PARTE DESSE TIME
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="py-16 bg-alliance-black text-alliance-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">
+                    <span class="text-alliance-gold">BÔNUS</span> EXCLUSIVOS
+                </h2>
+                <div class="w-24 h-1 bg-alliance-gold mx-auto mb-6"></div>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Além do conteúdo principal, você receberá estes bônus especiais
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bonus 1 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 text-center hover:bg-alliance-gold hover:text-alliance-black transition group">
+                    <div class="w-20 h-20 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-alliance-black group-hover:text-alliance-gold">
+                        <i class="fas fa-head-side-virus text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">PREPARAÇÃO MENTAL</h3>
+                    <p class="text-gray-300 group-hover:text-alliance-black">
+                        Aula bônus sobre técnicas de preparação mental para competições e treinos intensos.
+                    </p>
+                </div>
+                
+                <!-- Bonus 2 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 text-center hover:bg-alliance-gold hover:text-alliance-black transition group">
+                    <div class="w-20 h-20 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-alliance-black group-hover:text-alliance-gold">
+                        <i class="fas fa-video text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">AVALIAÇÃO TÉCNICA</h3>
+                    <p class="text-gray-300 group-hover:text-alliance-black">
+                        Análise personalizada do seu jogo com retorno em vídeo apontando pontos de melhoria.
+                    </p>
+                </div>
+                
+                <!-- Bonus 3 -->
+                <div class="bg-alliance-black border border-alliance-gold rounded-lg p-6 text-center hover:bg-alliance-gold hover:text-alliance-black transition group">
+                    <div class="w-20 h-20 bg-alliance-gold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-alliance-black group-hover:text-alliance-gold">
+                        <i class="fas fa-clock text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">ACESSO ANTECIPADO</h3>
+                    <p class="text-gray-300 group-hover:text-alliance-black">
+                        Conteúdos novos liberados para você antes de todo mundo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="py-16 bg-alliance-gold text-alliance-black">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <div class="bg-alliance-white p-4 rounded-full shadow-xl">
+                        <i class="fas fa-shield-alt text-6xl text-alliance-gold"></i>
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-12 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-title font-bold mb-6">
+                        GARANTIA DE <span class="text-alliance-black">7 DIAS</span>
+                    </h2>
+                    <p class="text-xl mb-6">
+                        Teste o programa por 7 dias. Se não sentir que está evoluindo seu jiu-jitsu, devolvemos 100% do seu dinheiro. Sem letras miúdas.
+                    </p>
+                    <p class="text-lg font-bold">
+                        <i class="fas fa-check-circle mr-2"></i> Sem perguntas | Sem burocracia | Sem riscos
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="py-16 bg-alliance-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto bg-alliance-black rounded-xl overflow-hidden shadow-2xl">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-alliance-gold p-8 flex flex-col justify-center">
+                        <h2 class="text-3xl font-title font-bold mb-6 text-center text-alliance-black">
+                            PRONTO PARA <span class="text-alliance-white">EVOLUIR</span> SEU JIU-JITSU?
+                        </h2>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-alliance-black mr-3 mt-1"></i>
+                                <span>Aulas online com um faixa preta da Alliance</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-alliance-black mr-3 mt-1"></i>
+                                <span>Conteúdo conceitual que vai além das técnicas</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-alliance-black mr-3 mt-1"></i>
+                                <span>Feedback personalizado do professor</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-alliance-black mr-3 mt-1"></i>
+                                <span>Grupo exclusivo de alunos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-alliance-black mr-3 mt-1"></i>
+                                <span>Bônus exclusivos e garantia de 7 dias</span>
+                            </li>
+                        </ul>
+                        <div class="text-center">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Alliance_Jiu-jitsu_logo.svg/1200px-Alliance_Jiu-jitsu_logo.svg.png" alt="Alliance Logo" class="h-16 mx-auto">
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-bold text-alliance-gold mb-4 text-center">
+                            INSCREVA-SE AGORA
+                        </h3>
+                        <div class="text-center mb-6">
+                            <span class="text-gray-400 line-through text-xl">R$ 197,00</span>
+                            <span class="text-4xl font-bold text-alliance-white ml-2">R$ 147,00</span>
+                            <span class="block text-alliance-gold">ou 12x de R$ 14,75</span>
+                        </div>
+                        <a href="https://hotmart.com" target="_blank" class="bg-alliance-gold text-alliance-black font-bold py-4 px-8 rounded-full text-center text-xl mb-6 cta-button">
+                            QUERO ME INSCREVER
+                        </a>
+                        <div class="text-center">
+                            <img src="https://www.hotmart.com/ecommerce/hotmart/logo.svg" alt="Hotmart" class="h-8 mx-auto mb-4">
+                            <p class="text-sm text-gray-400">
+                                Compra 100% segura através da Hotmart
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-alliance-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">
+                    PERGUNTAS <span class="text-alliance-gold">FREQUENTES</span>
+                </h2>
+                <div class="w-24 h-1 bg-alliance-gold mx-auto mb-6"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ 1 -->
+                <div class="faq-item pb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-alliance-gold rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-question text-alliance-black text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Preciso ser avançado para fazer esse curso?
+                            </h3>
+                            <p class="text-gray-700">
+                                Não. O conteúdo é adaptável para todos os níveis. O professor Juan tem experiência em ensinar desde faixas brancas até faixas pretas, adaptando o ensino para cada aluno.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item pb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-alliance-gold rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-question text-alliance-black text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                As aulas são ao vivo ou gravadas?
+                            </h3>
+                            <p class="text-gray-700">
+                                Você terá acesso a conteúdo gravado para assistir quando quiser e poderá agendar sessões ao vivo conforme o plano escolhido. As aulas ao vivo são ótimas para tirar dúvidas específicas.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item pb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-alliance-gold rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-question text-alliance-black text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Posso treinar sozinho com esse conteúdo?
+                            </h3>
+                            <p class="text-gray-700">
+                                Sim, as aulas são pensadas para orientar a aplicação no treino real, com ou sem parceiro. Muitos exercícios podem ser feitos sozinho, e o professor dá orientações específicas para quem treina sem parceiro.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item pb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-alliance-gold rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-question text-alliance-black text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                E se eu não gostar?
+                            </h3>
+                            <p class="text-gray-700">
+                                Você tem 7 dias para pedir reembolso total, sem perguntas. Basta enviar um email e seu dinheiro será devolvido integralmente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item pb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-alliance-gold rounded-full w-8 h-8 flex items-center justify-center mr-4 mt-1">
+                            <i class="fas fa-question text-alliance-black text-sm"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-2">
+                                Esse curso é só para quem quer competir?
+                            </h3>
+                            <p class="text-gray-700">
+                                Não. É para quem deseja evoluir no Jiu-Jitsu, seja para competir, se sentir mais seguro, melhorar o condicionamento ou dominar a arte como estilo de vida. O professor adapta o ensino para cada objetivo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-4 px-8 rounded-full inline-block text-xl cta-button">
+                    QUERO COMEÇAR AGORA
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-alliance-black text-alliance-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Alliance_Jiu-jitsu_logo.svg/1200px-Alliance_Jiu-jitsu_logo.svg.png" alt="Alliance Logo" class="h-12">
+                        <span class="ml-2 text-alliance-gold font-bold text-xl">ALLIANCE VILA MATILDE</span>
+                    </div>
+                    <p class="mt-4 text-gray-400 max-w-md">
+                        Elevando o nível do Jiu-Jitsu através do ensino de conceitos avançados para todos os níveis.
+                    </p>
+                </div>
+                
+                <div class="mb-6 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4 text-alliance-gold">REDES SOCIAIS</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-alliance-gold">CONTATO</h3>
+                    <p class="flex items-center mb-2">
+                        <i class="fas fa-envelope mr-2 text-alliance-gold"></i>
+                        <span>contato@alliancevilamatilde.com</span>
+                    </p>
+                    <p class="flex items-center">
+                        <i class="fas fa-phone-alt mr-2 text-alliance-gold"></i>
+                        <span>(11) 98765-4321</span>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+                <p>
+                    © 2023 Alliance Vila Matilde. Todos os direitos reservados.
+                </p>
+                <p class="mt-2 text-sm">
+                    Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/5511987654321" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-green-600 transition z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Simple animation for FAQ items
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const answer = item.querySelector('p');
+                answer.classList.toggle('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
