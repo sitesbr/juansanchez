@@ -6,6 +6,9 @@
     <title>Alliance Jiu-Jitsu - Evolua Seu Jogo com o Professor Juan</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -21,20 +24,26 @@
                         sans: ['Montserrat', 'sans-serif'],
                         title: ['Oswald', 'sans-serif'],
                     },
+                    animation: {
+                        'pulse-slow': 'pulse 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
                 }
             }
         }
     </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap');
-        
         .bg-alliance-pattern {
             background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiMwMDAwMDAiLz48cGF0aCBkPSJNMzAgMTVMMTUgMzBMMzAgNDVMNDUgMzBMMzAgMTVaTTMwIDBMMCAzMEwzMCA2MEw2MCAzMEwzMCAwWiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRDVBRDM3IiBzdHJva2Utd2lkdGg9IjEiLz48L3N2Zz4=');
             background-size: 120px;
             opacity: 0.05;
         }
-    
-
 
         .hero-video-overlay {
             background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
@@ -42,10 +51,21 @@
         
         .testimonial-card {
             box-shadow: 0 10px 15px -3px rgba(212, 175, 55, 0.3), 0 4px 6px -2px rgba(212, 175, 55, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 20px -5px rgba(212, 175, 55, 0.4);
         }
         
         .faq-item {
             border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background-color: rgba(212, 175, 55, 0.05);
         }
         
         .cta-button {
@@ -62,24 +82,115 @@
             height: 4px;
             background: linear-gradient(90deg, rgba(212,175,55,1) 0%, rgba(0,0,0,1) 50%, rgba(212,175,55,1) 100%);
         }
+
+        .floating-badge {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #c9a227;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                padding-top: 80px;
+            }
+            
+            .mobile-cta-buttons {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .mobile-cta-buttons a {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body class="font-sans bg-alliance-white text-alliance-black">
-    <!-- Header with Logo -->
+    <!-- Header with Logo and Mobile Menu -->
     <header class="bg-alliance-black py-4 sticky top-0 z-50 shadow-lg">
         <div class="container mx-auto px-4 flex justify-between items-center">
             <div class="flex items-center">
                 <img src="https://i.postimg.cc/cCjWjS3C/ali.png" alt="Alliance Jiu-Jitsu Logo" class="h-12">
                 <span class="ml-2 text-alliance-gold font-bold text-xl hidden md:block">ALLIANCE VILA MATILDE</span>
             </div>
-            <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-2 px-6 rounded-full cta-button">
-                QUERO EVOLUIR
-            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#sobre" class="text-alliance-white hover:text-alliance-gold transition">Sobre</a>
+                <a href="#metodo" class="text-alliance-white hover:text-alliance-gold transition">Método</a>
+                <a href="#depoimentos" class="text-alliance-white hover:text-alliance-gold transition">Depoimentos</a>
+                <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-2 px-6 rounded-full cta-button">
+                    QUERO EVOLUIR
+                </a>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden text-alliance-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed inset-y-0 right-0 w-64 bg-alliance-black z-50 p-6 shadow-2xl">
+            <div class="flex justify-end mb-8">
+                <button id="close-menu-button" class="text-alliance-white focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <nav class="flex flex-col space-y-6">
+                <a href="#sobre" class="text-alliance-white hover:text-alliance-gold transition text-xl">Sobre</a>
+                <a href="#metodo" class="text-alliance-white hover:text-alliance-gold transition text-xl">Método</a>
+                <a href="#depoimentos" class="text-alliance-white hover:text-alliance-gold transition text-xl">Depoimentos</a>
+                <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-3 px-6 rounded-full text-center cta-button">
+                    QUERO EVOLUIR
+                </a>
+            </nav>
+            
+            <div class="absolute bottom-8 left-6 right-6">
+                <div class="flex justify-center space-x-4">
+                    <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden">
+    <section class="relative overflow-hidden hero-content">
         <div class="absolute inset-0 bg-alliance-pattern z-0"></div>
         <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
             <div class="flex flex-col md:flex-row items-center">
@@ -87,10 +198,10 @@
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-title font-bold leading-tight mb-6">
                         <span class="text-alliance-gold">DESTRAVE</span> SEU JOGO NO JIU-JITSU COM QUEM VIVE O TATAME TODOS OS DIAS
                     </h1>
-                    <p class="text-xl md:text-2xl text-gray-200 mb-8">
+                    <p class="text-xl md:text-2xl text-gray-700 mb-8">
                         Aprenda os conceitos que fazem qualquer atleta se destacar – com um faixa preta da Alliance que ainda compete, ensina e evolui há mais de 15 anos.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
+                    <div class="flex flex-col sm:flex-row gap-4 mobile-cta-buttons">
                         <a href="#cta" class="bg-alliance-gold text-alliance-black font-bold py-4 px-8 rounded-full text-center text-xl cta-button">
                             QUERO EVOLUIR COM O PROFESSOR JUAN
                         </a>
@@ -118,7 +229,7 @@
     </section>
 
     <!-- Professor Section -->
-    <section class="py-16 bg-alliance-black text-alliance-white relative overflow-hidden">
+    <section id="sobre" class="py-16 bg-alliance-black text-alliance-white relative overflow-hidden">
         <div class="absolute inset-0 bg-alliance-pattern z-0"></div>
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row items-center">
@@ -196,7 +307,7 @@
     <div class="section-divider"></div>
 
     <!-- Program Section -->
-    <section class="py-16 bg-alliance-white">
+    <section id="metodo" class="py-16 bg-alliance-white">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-title font-bold mb-4">
@@ -460,14 +571,14 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Aluno" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVuEoSw-EcDy-Ynocto0rxIX7oRvOxVnpyx2SE3mlHcLpcbwIg=w72-h72-p-rp-mo-br100" alt="Aluno" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h4 class="font-bold">Carlos Silva</h4>
+                                <h4 class="font-bold">Erick Frankel Hernandez</h4>
                                 <p class="text-sm text-alliance-gold">Faixa Azul</p>
                             </div>
                         </div>
                         <p class="text-gray-700 italic">
-                            "Depois de 6 meses travado, em 1 mês com o professor Juan já senti diferença no meu jogo. Agora consigo pensar durante o rola!"
+                            "Um ambiente extremamente acolhedor, com pessoas incríveis. O mestre torna o ambiente descontraído e muito saudável, eu amo esse lugar."
                         </p>
                     </div>
                 </div>
@@ -481,14 +592,14 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Aluna" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://lh3.googleusercontent.com/a-/ALV-UjUQ7CzKvIPTf25VrOIN2soYhsl9_LVamcZnCLS3wHt_83A6Ow=w72-h72-p-rp-mo-br100" alt="Aluna" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h4 class="font-bold">Ana Oliveira</h4>
+                                <h4 class="font-bold">Daysie Santos</h4>
                                 <p class="text-sm text-alliance-gold">Faixa Branca</p>
                             </div>
                         </div>
                         <p class="text-gray-700 italic">
-                            "Como mulher, me sentia insegura nos treinos. O professor Juan me mostrou como adaptar o jiu-jitsu ao meu corpo e hoje me sinto muito mais confiante."
+                            "Sem dúvida o melhor lugar que escolhi para meus filhos, os mestres Tio Juan, Tia Karina e os instrutores são todos mto acolhedores e cuidadosos, um amor de pessoas.. Um ambiente mto agradável, desde a recepção como um todo, tem uma estrutura ótima e sempre mto organizado e limpo.. Amoo 🥰"
                         </p>
                     </div>
                 </div>
@@ -502,14 +613,14 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-4">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Aluno" class="w-12 h-12 rounded-full mr-4">
+                            <img src="https://lh3.googleusercontent.com/a-/ALV-UjVWfSQ_rbXIClIXouxtQUnbQRpjrfTvMRUbPhr2Zu2jEyd3FybPgg=w72-h72-p-rp-mo-ba4-br100" alt="Aluno" class="w-12 h-12 rounded-full mr-4">
                             <div>
-                                <h4 class="font-bold">Ricardo Santos</h4>
+                                <h4 class="font-bold">Mauricio Moura</h4>
                                 <p class="text-sm text-alliance-gold">Faixa Roxa</p>
                             </div>
                         </div>
                         <p class="text-gray-700 italic">
-                            "O diferencial são os conceitos que o professor ensina. Mesmo sendo faixa roxa, aprendi coisas que nunca tinha pensado antes."
+                            "Alliance Vila Matilde é  top. Boas instalações, treinos de alta qualidade técnica sempre sob a responsabilidade do Senei Juan que é um excelente atleta e professor."
                         </p>
                     </div>
                 </div>
@@ -578,7 +689,7 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-                    <div class="bg-alliance-white p-4 rounded-full shadow-xl">
+                    <div class="bg-alliance-white p-4 rounded-full shadow-xl floating-badge">
                         <i class="fas fa-shield-alt text-6xl text-alliance-gold"></i>
                     </div>
                 </div>
@@ -629,7 +740,7 @@
                             </li>
                         </ul>
                         <div class="text-center">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Alliance_Jiu-jitsu_logo.svg/1200px-Alliance_Jiu-jitsu_logo.svg.png" alt="Alliance Logo" class="h-16 mx-auto">
+                            <img src="https://www.allianceofficial.com/wp-content/uploads/2020/05/aguia-footer.png" alt="Alliance Logo" class="h-16 mx-auto">
                         </div>
                     </div>
                     <div class="md:w-1/2 p-8 flex flex-col justify-center">
@@ -645,7 +756,7 @@
                             QUERO ME INSCREVER
                         </a>
                         <div class="text-center">
-                            <img src="https://www.hotmart.com/ecommerce/hotmart/logo.svg" alt="Hotmart" class="h-8 mx-auto mb-4">
+                            <img src="https://lirp.cdn-website.com/56ac0141/dms3rep/multi/opt/Hotmart-Primary_Horizontal_Logo-One_Color_Light-640w.png" alt="Hotmart" class="h-8 mx-auto mb-4">
                             <p class="text-sm text-gray-400">
                                 Compra 100% segura através da Hotmart
                             </p>
@@ -767,7 +878,7 @@
             <div class="flex flex-col md:flex-row justify-between items-center">
                 <div class="mb-6 md:mb-0">
                     <div class="flex items-center">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Alliance_Jiu-jitsu_logo.svg/1200px-Alliance_Jiu-jitsu_logo.svg.png" alt="Alliance Logo" class="h-12">
+                        <img src="https://i.postimg.cc/cCjWjS3C/ali.png" alt="Alliance Logo" class="h-12">
                         <span class="ml-2 text-alliance-gold font-bold text-xl">ALLIANCE VILA MATILDE</span>
                     </div>
                     <p class="mt-4 text-gray-400 max-w-md">
@@ -781,12 +892,7 @@
                         <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
-                            <i class="fab fa-youtube"></i>
-                        </a>
+                       
                         <a href="#" class="w-10 h-10 bg-alliance-gold rounded-full flex items-center justify-center text-alliance-black hover:bg-alliance-white transition">
                             <i class="fab fa-whatsapp"></i>
                         </a>
@@ -808,19 +914,24 @@
             
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
                 <p>
-                    © 2023 Alliance Vila Matilde. Todos os direitos reservados.
+                    © 2025 Alliance Vila Matilde. Todos os direitos reservados.
                 </p>
                 <p class="mt-2 text-sm">
-                    Este site não é afiliado ao Facebook ou a qualquer entidade do Facebook. Depois que você sair do Facebook, a responsabilidade não é deles e sim do nosso site. Fazemos todos os esforços para indicar claramente e mostrar todas as provas do produto e usamos resultados reais.
+                    www.alliancevilamatilde.com.br
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/5511987654321" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-lg hover:bg-green-600 transition z-50">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    <!-- Floating Social Buttons -->
+    <div class="fixed bottom-6 right-6 flex flex-col space-y-4 z-50">
+        <a href="https://wa.me/5511987654321" target="_blank" class="bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-green-600 transition transform hover:scale-110">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://instagram.com/alliancevilamatilde" target="_blank" class="bg-gradient-to-r from-purple-500 to-pink-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg hover:from-purple-600 hover:to-pink-600 transition transform hover:scale-110">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
 
     <script>
         // Smooth scrolling for anchor links
@@ -834,14 +945,54 @@
             });
         });
         
-        // Simple animation for FAQ items
-        const faqItems = document.querySelectorAll('.faq-item');
-        faqItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const answer = item.querySelector('p');
-                answer.classList.toggle('hidden');
-            });
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('close-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+            document.body.style.overflow = 'hidden';
         });
+        
+        closeMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close menu when clicking outside
+        window.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && e.target !== mobileMenuButton) {
+                mobileMenu.classList.remove('open');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Animation for elements when they come into view
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.testimonial-card, .faq-item');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.testimonial-card, .faq-item').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(20px)';
+            element.style.transition = 'all 0.5s ease';
+        });
+        
+        // Run animation check on scroll and load
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
     </script>
 </body>
 </html>
